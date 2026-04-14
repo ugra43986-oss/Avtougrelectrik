@@ -11,13 +11,11 @@
       --bg: #07111f;
       --bg2: #0b1b31;
       --card: rgba(255,255,255,0.06);
-      --card-2: rgba(255,255,255,0.045);
       --line: rgba(255,255,255,0.11);
       --text: #f6f8fc;
       --muted: #b8c3d6;
       --accent: #ff9d44;
       --accent-2: #cfefff;
-      --accent-3: #6ba7ff;
       --shadow: 0 24px 60px rgba(0,0,0,0.34);
       --radius: 28px;
       --max: 1180px;
@@ -172,7 +170,9 @@
     .review-card,
     .faq-card,
     .contact-card,
-    .cta {
+    .cta,
+    .banner-card,
+    .hero-photo-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
@@ -285,10 +285,47 @@
     }
 
     .hero-side {
-      padding: 24px;
       display: grid;
       gap: 16px;
       align-content: start;
+    }
+
+    .hero-photo-card {
+      overflow: hidden;
+      position: relative;
+      min-height: 300px;
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(7,17,31,0) 0%, rgba(7,17,31,0.86) 100%);
+    }
+
+    .hero-photo-overlay strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-photo-overlay span {
+      color: #dbe5f3;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 16px;
     }
 
     .info-box {
@@ -358,7 +395,8 @@
     .feature-card,
     .review-card,
     .faq-card,
-    .contact-card {
+    .contact-card,
+    .banner-card {
       padding: 24px;
     }
 
@@ -392,7 +430,8 @@
     .feature-card h3,
     .review-card h3,
     .faq-card h3,
-    .contact-card h3 {
+    .contact-card h3,
+    .banner-card h3 {
       margin: 0;
       font-size: 1.16rem;
     }
@@ -405,6 +444,7 @@
     .review-card p,
     .faq-card p,
     .contact-card p,
+    .banner-card p,
     .service-card li,
     .contact-card li {
       color: var(--muted);
@@ -424,19 +464,29 @@
       letter-spacing: -0.02em;
     }
 
-    .gallery-preview {
+    .gallery-photo {
       margin-top: 14px;
-      min-height: 220px;
+      overflow: hidden;
       border-radius: 22px;
-      border: 1px dashed rgba(255,255,255,0.16);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025)),
-        linear-gradient(135deg, rgba(255,157,68,0.05), rgba(91,146,255,0.05));
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #dde5f2;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .gallery-photo img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .gallery-photo.tall img {
+      object-position: center center;
+    }
+
+    .banner-card img {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 16px;
     }
 
     .step-number {
@@ -573,7 +623,6 @@
       .nav-links a.link { display: none; }
 
       .hero-main,
-      .hero-side,
       .service-card,
       .price-card,
       .gallery-card,
@@ -582,7 +631,8 @@
       .review-card,
       .faq-card,
       .contact-card,
-      .cta {
+      .cta,
+      .banner-card {
         padding: 22px;
       }
 
@@ -593,6 +643,7 @@
       .btn { width: 100%; }
       .brand-title { font-size: 1rem; }
       .brand-subtitle { font-size: 0.88rem; }
+      .gallery-photo img { height: 220px; }
     }
   </style>
 </head>
@@ -654,39 +705,59 @@
           </div>
         </div>
 
-        <aside class="panel hero-side">
-          <div class="info-box">
-            <div class="info-head">
-              <div class="icon-dot">📞</div>
-              <div class="info-title">Телефон</div>
+        <aside class="hero-side">
+          <div class="hero-photo-card">
+            <img src="service-front.jpg" alt="Автосервис в п. Угра" />
+            <div class="hero-photo-overlay">
+              <strong>Реальное фото сервиса</strong>
+              <span>Угра, Ленина 33А. Автоэлектрик, диагностика и работы на подъемнике.</span>
             </div>
-            <div class="info-text"><a href="tel:+79529945394">+7 952 994-53-94</a></div>
           </div>
 
-          <div class="info-box">
-            <div class="info-head">
-              <div class="icon-dot">📍</div>
-              <div class="info-title">Адрес</div>
+          <div class="info-grid">
+            <div class="info-box">
+              <div class="info-head">
+                <div class="icon-dot">📞</div>
+                <div class="info-title">Телефон</div>
+              </div>
+              <div class="info-text"><a href="tel:+79529945394">+7 952 994-53-94</a></div>
             </div>
-            <div class="info-text">п. Угра, ул. Ленина, 33А</div>
-          </div>
 
-          <div class="info-box">
-            <div class="info-head">
-              <div class="icon-dot">🕒</div>
-              <div class="info-title">Формат работы</div>
+            <div class="info-box">
+              <div class="info-head">
+                <div class="icon-dot">📍</div>
+                <div class="info-title">Адрес</div>
+              </div>
+              <div class="info-text">п. Угра, ул. Ленина, 33А</div>
             </div>
-            <div class="info-text">По предварительной договоренности и записи.</div>
-          </div>
 
-          <div class="info-box">
-            <div class="info-head">
-              <div class="icon-dot">✔</div>
-              <div class="info-title">Что сказать при звонке</div>
+            <div class="info-box">
+              <div class="info-head">
+                <div class="icon-dot">🕒</div>
+                <div class="info-title">Формат работы</div>
+              </div>
+              <div class="info-text">По предварительной договоренности и записи.</div>
             </div>
-            <div class="info-text">Марка и модель автомобиля, какой симптом, когда проявляется проблема, нужна диагностика или конкретная работа.</div>
+
+            <div class="info-box">
+              <div class="info-head">
+                <div class="icon-dot">✔</div>
+                <div class="info-title">Что сказать при звонке</div>
+              </div>
+              <div class="info-text">Марка и модель автомобиля, какой симптом, когда проявляется проблема, нужна диагностика или конкретная работа.</div>
+            </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <article class="banner-card">
+          <h3>Диагностика и автоэлектрика</h3>
+          <p>Проверка систем автомобиля, чтение и расшифровка ошибок, сброс ошибок и адаптации, осмотр перед покупкой и техническое обслуживание.</p>
+          <img src="diagnostics-banner.jpg" alt="Диагностика автомобилей в Угре" />
+        </article>
       </div>
     </section>
 
@@ -849,22 +920,28 @@
     <section id="gallery">
       <div class="container">
         <h2 class="section-title">Фото сервиса</h2>
-        <p class="section-text">Сейчас стоят аккуратные заглушки. Дальше сюда лучше вставить реальные фото сервиса, подъемника и примеров работ.</p>
+        <p class="section-text">В эту версию уже вставлены реальные фотографии. Положи изображения рядом с файлом index.html.</p>
 
         <div class="grid-3">
           <article class="gallery-card">
-            <h3>Рабочее место</h3>
-            <div class="gallery-preview">Добавь фото зоны ремонта</div>
+            <h3>Вход в сервис</h3>
+            <div class="gallery-photo tall">
+              <img src="service-front.jpg" alt="Вход в автосервис" />
+            </div>
           </article>
 
           <article class="gallery-card">
-            <h3>Подъемник</h3>
-            <div class="gallery-preview">Добавь фото подъемника</div>
+            <h3>Подъемник и рабочая зона</h3>
+            <div class="gallery-photo">
+              <img src="service-lift.jpg" alt="Автомобиль на подъемнике" />
+            </div>
           </article>
 
           <article class="gallery-card">
-            <h3>Пример работ</h3>
-            <div class="gallery-preview">Добавь фото автомобиля или процесса ремонта</div>
+            <h3>Баннер услуг</h3>
+            <div class="gallery-photo">
+              <img src="diagnostics-banner.jpg" alt="Баннер по диагностике" />
+            </div>
           </article>
         </div>
       </div>
