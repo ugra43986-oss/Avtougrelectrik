@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Автосервис Село Угра</title>
-  <meta name="description" content="Автосервис Село Угра. Диагностика, автоэлектрик, подъемник, техническое обслуживание. Ленина, 33А. +7 952 994-53-94" />
+  <title>Автосервис в п. Угра</title>
+  <meta name="description" content="Автосервис в п. Угра. Диагностика, автоэлектрик, подъемник, техническое обслуживание. Ленина, 33А. +7 952 994-53-94" />
   <meta name="theme-color" content="#081321" />
   <style>
     :root {
@@ -326,18 +326,39 @@
       color: var(--text);
     }
 
-    .gallery {
+    .photo-card {
+      padding: 0;
       overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      height: 240px;
-      margin-top: 12px;
+      min-height: 320px;
+      position: relative;
     }
 
-    .gallery img {
+    .photo-card img {
       width: 100%;
       height: 100%;
+      min-height: 320px;
       object-fit: cover;
+      display: block;
+    }
+
+    .photo-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(7,17,31,0) 0%, rgba(7,17,31,0.86) 100%);
+    }
+
+    .photo-overlay h3 {
+      margin: 0 0 4px;
+      font-size: 1.08rem;
+    }
+
+    .photo-overlay p {
+      margin: 0;
+      color: #d9e3f2;
+      line-height: 1.45;
     }
 
     .contact-list {
@@ -427,7 +448,8 @@
       .hero-main,
       .card,
       .cta { padding: 22px; }
-      .gallery { height: 220px; }
+      .photo-card,
+      .photo-card img { min-height: 260px; }
     }
   </style>
 </head>
@@ -439,7 +461,7 @@
           <img src="diagnostics-banner.jpg" alt="Автосервис" />
         </div>
         <div>
-          <div class="brand-title">Автосервис Село Угра</div>
+          <div class="brand-title">Автосервис в п. Угра</div>
           <div class="brand-subtitle">Диагностика • автоэлектрик • подъемник</div>
         </div>
       </a>
@@ -459,7 +481,7 @@
       <div class="container hero-grid">
         <div class="hero-main">
           <div class="badge">Ленина, 33А</div>
-          <h1>Автосервис Село Угра</h1>
+          <h1>Автосервис в п. Угра</h1>
           <p class="hero-text">Диагностика, автоэлектрик, работы на подъемнике и техническое обслуживание автомобилей.</p>
 
           <div class="hero-actions">
@@ -554,17 +576,26 @@
         <p class="section-text">Сервис, подъемник и рабочая зона.</p>
 
         <div class="grid-3">
-          <article class="card">
-            <h3>Вход</h3>
-            <div class="gallery"><img src="service-front.jpg" alt="Вход в сервис" /></div>
+          <article class="card photo-card">
+            <img src="service-front.jpg" alt="Вход в сервис" />
+            <div class="photo-overlay">
+              <h3>Вход</h3>
+              <p>Автосервис в селе Угра, Ленина 33А.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3>Подъемник</h3>
-            <div class="gallery"><img src="service-lift.jpg" alt="Машина на подъемнике" /></div>
+          <article class="card photo-card">
+            <img src="service-lift.jpg" alt="Машина на подъемнике" />
+            <div class="photo-overlay">
+              <h3>Подъемник</h3>
+              <p>Осмотр, диагностика и ремонт автомобиля.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3>Диагностика</h3>
-            <div class="gallery"><img src="diagnostics-banner.jpg" alt="Диагностика" /></div>
+          <article class="card photo-card">
+            <img src="diagnostics-banner.jpg" alt="Диагностика" />
+            <div class="photo-overlay">
+              <h3>Диагностика</h3>
+              <p>Проверка систем, автоэлектрика и обслуживание.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -621,10 +652,11 @@
     </section>
   </main>
 
+  <a class="floating-call btn btn-primary" href="tel:+79529945394" aria-label="Позвонить">📞</a>
 
   <footer class="footer">
     <div class="container footer-box">
-      <div>© 2026 Автосервис Село Угра</div>
+      <div>© 2026 Автосервис в п. Угра</div>
       <div>Диагностика • Автоэлектрик • Подъемник</div>
     </div>
 
